@@ -1,0 +1,49 @@
+<!--  I admit, this isn't my work. I couldn't quite work out how to make sense of the the handlebars syntax, and time had basically run out. Having looked through this, I think I figured it out, so let's see. -->
+
+
+<h1>Eat-Da-Burger!</h1>
+
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col s6">
+        {{#each burgers}}
+        <!-- Here, you list the burgers... -->
+          {{#unless this.devoured}}
+          <!--  Unless one of them has been eaten...-->
+            <div>
+              <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+                <button type="submit" class='burgerAvailable'> {{this.burger_name}}</button>
+              </form>
+            </div>
+          {{/unless}}
+        {{/each}}
+      </div>
+
+      <div class="col s6">
+        {{#each burgers}}
+          {{#if this.devoured}}
+          <!-- In which case, it's down here. -->
+            <div class='burgerEaten'>
+              <div>
+                {{this.burger_name}}
+              </div>
+            </div>
+          {{/if}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</main>
+
+<h2>Add A Burger Option</h2>
+
+<div class="row">
+  <div class="col s12">
+    <form action="/burgers" method="POST">
+      <input type="text" id="name" name="burger_name" placeholder="Uber Delicious Burger">
+      <!-- Adds a new burger. Kind of obvious, really. -->
+      <button type="submit" class="addBurgerButton">Add The Burger</button>
+    </form>
+  </div>
+</div>

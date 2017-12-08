@@ -14,7 +14,7 @@ router.get("/", function(req, res) {
 });
 
 router.post("/api/burgers", function(req, res) {
-  cat.create([
+  burger.create([
     "burger_name", "devoured"
   ], [
     req.body.burger_name, req.body.devoured
@@ -42,3 +42,5 @@ router.put("/api/burgers/:id", function(req, res) {
 });
 
 module.exports = router;
+
+// I'm not ashamed to admit I don't know what this does. I copied it from cats and changed some words. I think it works. It looks like it should.

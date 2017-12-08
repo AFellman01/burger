@@ -20,3 +20,5 @@ connection.connect(function(err) {
 
 // Export connection for our ORM to use.
 module.exports = connection;
+
+// All of this was standard boilerplate. I've got it saved in a text file on the cloud now.
